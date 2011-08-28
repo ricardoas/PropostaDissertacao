@@ -1,0 +1,274 @@
+% Universidade Federal de Campina Grande
+% Proposta de Dissertação de Mestrado em Ciencia da Computacao
+%
+% Aluno: Ricardo Araújo Santos - ricardo@lsd.ufcg.edu.br - ricardo@dsc.ufcg.edu.br
+% Orientadora: Raquel Vigolvino Lopes
+% Dezembro de 2010
+
+\documentclass[a4paper,titlepage,12pt]{article}
+
+%language
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc} % codificar arquivo em UTF-8
+\usepackage[T1]{fontenc}
+
+%tabelas
+\usepackage{longtable}
+\usepackage{colortbl}
+
+\usepackage{color}
+\usepackage{times}
+\usepackage{fancyheadings}
+\usepackage{fancyvrb}
+
+\usepackage{algorithmic}
+\usepackage[nothing]{algorithm}
+\usepackage{latexsym}
+
+\usepackage{graphicx,url}
+
+\usepackage[portuguese]{nomencl}
+
+
+\sloppy
+
+% Estilo e espacamento ----------------------------------------
+\newlength{\defbaselineskip}
+\setlength{\defbaselineskip}{\baselineskip}
+\newcommand{\setlinespacing}[1]
+           {\setlength{\baselineskip}{#1 \defbaselineskip}}
+
+\setcounter{topnumber}{2}
+\renewcommand{\topfraction}{.7}
+\setcounter{bottomnumber}{1}
+\renewcommand{\bottomfraction}{.3}
+\setcounter{totalnumber}{3}
+\renewcommand{\textfraction}{.2}
+\renewcommand{\floatpagefraction}{.5}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{.7}
+\renewcommand{\dblfloatpagefraction}{.5}
+
+\oddsidemargin -28pt
+\evensidemargin -28pt
+\marginparwidth 50pt
+\marginparsep 5pt
+\topmargin -27pt
+\hoffset 15mm
+\textheight 237mm
+\textwidth 155mm
+\renewcommand{\baselinestretch}{1.5}
+% ------------------------------------------------------------------------
+
+% Tradução dos comandos do algorithmic ----------------------------------------
+% \renewcommand{\algorithmicend}{\textbf{fim}}
+% \renewcommand{\algorithmicif}{\textbf{se}}
+% \renewcommand{\algorithmicthen}{\textbf{ent\~{a}o}}
+% \renewcommand{\algorithmicelse}{\textbf{sen\~{a}o}}
+% \renewcommand{\algorithmicendif}{\textbf{fim-se}}
+% \renewcommand{\algorithmicelsif}{\algorithmicelse\ \algorithmicif}
+% \renewcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+% \renewcommand{\algorithmicfor}{\textbf{para}}
+% \renewcommand{\algorithmicforall}{\textbf{paratodos}}
+% \renewcommand{\algorithmicdo}{\textbf{fa\c{c}a}}
+% \renewcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+% \renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+% \renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+% \renewcommand{\algorithmicloop}{\textbf{loop}}
+% \renewcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+% \renewcommand{\algorithmicrepeat}{\textbf{repita}}
+% \renewcommand{\algorithmicuntil}{\textbf{at\'{e}}}
+% \floatname{algorithm}{Algoritmo}
+% ------------------------------------------------------------------------
+
+\renewcommand{\nomname}{Lista de Siglas e Abreviaturas}
+
+\makenomenclature
+
+\begin{document}
+
+% Capa ------------------------------------------------------------------------
+
+\pagestyle{empty}
+
+\begin{center}
+{\textbf{\Large \textsc{Universidade Federal de Campina Grande}}}
+\end{center}
+
+\begin{center}
+\textbf{{\Large \textsc{Centro de Engenharia Elétrica e Informática}}}
+\end{center}
+
+\begin{center}
+{\large \textsc{\textbf{Curso de Mestrado em Ciência da Computação}}}
+\end{center}
+
+~\\ \\
+
+\begin{center}
+{\LARGE \textsc{\textbf{Proposta de Dissertação de Mestrado}}}
+\end{center}
+
+~\\ \\
+
+\begin{center}
+{\Large \textsc{\textbf{<<Título da Proposta>>}}}
+\end{center}
+
+~\\ \\
+
+\begin{center}
+\textbf{\textsc{Mestrando(a)} \\
+\textsc{Ricardo Araújo Santos}}
+\end{center}
+
+\begin{center}
+\textbf{\textsc{Orientadora} \\
+\textsc{Raquel Vigolvino Lopes}}
+\end{center}
+
+~\\ \\ \\
+
+\begin{center}
+\textbf{{\large \textsc{Campina Grande}}
+\\
+{\large \textsc{Dezembro - 2010}}}
+\end{center}
+
+\newpage
+\cleardoublepage
+
+% ------------------------------------------------------------------------
+
+% Algarismos romanos para as páginas de listagem.
+\pagestyle{plain}
+\pagenumbering{roman}
+
+
+\printnomenclature[1cm]
+\newpage
+
+\listoffigures
+\newpage
+
+\listoftables
+\newpage
+
+\tableofcontents
+\newpage
+
+% Corpo do documento -------------------
+
+% Algarismos arábicos para as páginas do corpo.
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definicao do cabecalho: secao do lado esquerdo e numero da pagina do lado direito
+\pagestyle{fancy}
+\addtolength{\headwidth}{\marginparsep}\addtolength{\headwidth}{\marginparwidth}\headwidth
+= \textwidth
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}\lhead[\fancyplain{}{\bfseries\thepage}]%
+         {\fancyplain{}{\emph{\rightmark}}}\rhead[\fancyplain{}{\bfseries\leftmark}]%
+             {\fancyplain{}{\bfseries\thepage}}\cfoot{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Introdução}
+\label{sec:introducao}
+
+Na introduo voc deve contextualizar o problema que estar estudando. Em particular, voc deve descrever brevemente a rea na qual estar trabalhando e introduzir de forma clara os problemas da rea relevantes ao seu trabalho. Observe que a seo no fala de solues mas de problemas existindo na rea de interesse.
+Sem contar apndices e referncias bibliogrficas, uma proposta de dissertao de mestrado geralmente contm uma dezena de pginas.
+
+\section{Objetivo da Proposta}
+\label{sec:objetivo}
+
+Nesta seo, voc deve falar da soluo que voc prope aos problemas apresentados anteriormente. O enfoque  sobre "o qu" voc vai fazer.
+
+\section{Relev\^{a}ncia da Proposta}
+\label{sec:relev}
+
+Aqui, o enfoque  o "porqu". Voc pode se concentrar em responder  seguinte pergunta: "Se meu trabalho for bem sucedido, o que ter mudado na rea sob estudo?". Em outras palavras, quais so as contribuies planejadas?
+
+\section{Metodologia de Trabalho}
+\label{sec:metodologia}
+
+Aqui o enfoque  o "como".  Quais so os passos que devero ser desenvolvidos, e em que ordem, para que o trabalho seja feito. Uma tabela semelhante  Tabela~\ref{tab:atividades} pode ser utilizada para apoiar a apresentao.
+
+\include{cronograma}
+
+% 
+% \begin{table}[h]
+% \caption{Atividades planejadas.}
+% \label{tab:atividades}
+%  \small
+%   \begin{center}
+%     \begin{tabular}{|c||p{13cm}|} \hline
+%       {\bf Atividade}   &{\bf Descrio} \\\hline
+%       {\bf 1}   & Realizar uma pesquisa bibliogrfica sobre as solues existentes para o problema de \textit{xpto}.  \\\hline
+%       {\bf 2}   & Elaborar relat\'{o}rio t\'{e}cnico contendo a avalia\c{c}\~{a}o das solu\c{c}\~{o}es encontradas. \\\hline
+%       {\bf 3}   & Levantar os requisitos bsicos da soluo desejada. \\\hline
+%       {\bf 3.1}   & Definir um esboo de uma soluo a ser implementada que atenda aos requisitos levantados. \\\hline
+%       {\bf 4}   & Elaborar o projeto da soluo e definir a linguagem de programao a ser usada para implementar a ferramenta. O processo de desenvolvimento utilizado ser baseado no Processo Unificado, utilizando UML como linguagem de modelagem. \\\hline
+%       {\bf 4.1}   & Fazer o levantamento detalhado de requisitos funcionais da ferramenta, gerando um modelo de Anlise. \\\hline
+%       {\bf 4.2}   & Definir a arquitetura da ferramenta, gerando um modelo arquitetural. \\\hline
+%       {\bf 4.3}   & Definir a linguagem de programao na qual a ferramenta ser implementada. \\\hline
+%       {\bf 4.4}   & Elaborar o projeto da ferramenta, gerando um modelo de projeto. \\\hline
+%       {\bf 5}  & Implementar a ferramenta utilizando a linguagem de programao escolhida. Sero utilizados testes de unidade durante esta fase. \\\hline
+%       {\bf 6}  & Elaborar um artigo contendo a avaliao da ferramenta. \\\hline
+%       {\bf 7}  & Elaborar a redao da dissertao de mestrado. \\\hline
+%       {\bf 8}  & Defender a disserta\c{c}\~{a}o de mestrado. \\\hline
+%     \end{tabular}
+%   \end{center}
+% %  \normalsize
+% \end{table}
+
+\newpage
+
+
+\section{Cronograma}
+\label{sec:cronograma}
+
+O cronograma apresenta a dimenso "quando". As atividades mencionadas na Metodologia devem ser cronogramadas, incluindo data de incio, data final, dependncias entre atividades.
+Um exemplo de cronograma  apresentado na Tabela~\ref{tab:cronograma}.
+
+\begin{table}[ht]
+\caption{Cronograma do projeto de pesquisa.} \label{tab:cronograma}
+%  \scriptsize
+  \begin{center}
+    \begin{tabular}{|c|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+                       & & \multicolumn{14}{c|}{ {\bf Atividade } } \\\hline \hline
+      {\bf Ano}  &{\bf Ms}  &{\bf 1}  &{\bf 2}  &{\bf 3} &{\bf 4}  &{\bf 5}  &{\bf 6}  &{\bf 7} &{\bf 8}  &{\bf 9}  &{\bf 10} &{\bf 11}  &{\bf 12}  &{\bf 13}  &{\bf 14}\\\hline
+      {\bf 2005} &{\bf Jun}  & X       & X       &        &         &         &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Jul}  & X       &         & X      &         &         &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Ago}  & X       &         &        & X       &         &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Set}  & X       &         &        &         & X       &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Out}  & X       &         &        &         & X       &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Nov}  & X       &         &        &         & X       &         &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2005} &{\bf Dez}  & X       &         &        &         &         & X       &        &         &         &         &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Jan}  & X       &         &        &         &         &         & X      &         &         &         &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Fev}  & X       &         &        &         &         &         & X      &         &         &         &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Mar}  &         &         &        &         &         &         &        & X       & X       &         &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Abr}  &         &         &        &         &         &         &        &         &         & X       &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Mai}  &         &         &        &         &         &         &        &         &         & X       &          &          &          &        \\\hline
+      {\bf 2006} &{\bf Jun}  &         &         &        &         &         &         &        &         &         &         & X        &          &          &        \\\hline
+      {\bf 2006} &{\bf Jul}  &         &         &        &         &         &         &        &         &         &         &          & X        &          &        \\\hline
+      {\bf 2006} &{\bf Ago}  &         &         &        &         &         &         &        &         &         &         &          &          &  X       &        \\\hline
+      {\bf 2006} &{\bf Set}  &         &         &        &         &         &         &        &         &         &         &          &          &  X       &        \\\hline
+      {\bf 2006} &{\bf Out}  &         &         &        &         &         &         &        &         &         &         &          &          &  X       &        \\\hline
+      {\bf 2006} &{\bf Nov}  &         &         &        &         &         &         &        &         &         &         &          &          &  X       &        \\\hline
+      {\bf 2006} &{\bf Dez}  &         &         &        &         &         &         &        &         &         &         &          &          &          & X      \\\hline
+    \end{tabular}
+  \end{center}
+%  \normalsize
+\end{table}
+
+\newpage
+
+%% Bibliografia ----------------------------------------------------------------
+\bibliographystyle{alpha} % estilo de bibliografia
+\bibliography{proposta} % arquivos com as entradas bib.
+
+\end{document}
