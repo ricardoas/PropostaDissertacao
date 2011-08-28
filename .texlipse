@@ -10,4 +10,4 @@ mainTexFile=proposta.tex
 outputFile=proposta.pdf
 langSpell=en
 markDer=true
-srcDir=src
+srcDir=
